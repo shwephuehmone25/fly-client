@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import type { HotelResponse } from "../../types/types";
 
-// Get runtime config
 const config = useRuntimeConfig();
 
-// Fetch hotels using useAsyncData
 const { data, pending, error } = useAsyncData<HotelResponse>(
   "hotels",
   () => $fetch(`${config.public.apiBase}/hotels?limit=12`)
